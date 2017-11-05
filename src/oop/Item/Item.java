@@ -1,6 +1,5 @@
 package oop.Item;
 
-import oop.Zvirata.Player;
 
 public class Item {
 	/**

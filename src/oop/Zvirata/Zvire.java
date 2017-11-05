@@ -49,14 +49,15 @@ public class Zvire {
 			System.out.println(name+" dostal lvl up");
 		}
 	}
-	public void byloZasazeno(float Silou){
+	public void byloZasazeno(float Silou,int playerID){
+		Player plr = Game.plrList.get(playerID);
 		try{
-		this.Zivoty -= ((Silou/2)/Lvl)*(Game.plr.Lvl+1);
+		this.Zivoty -= ((Silou/2)/Lvl)*(plr.Lvl+1);
 		System.out.println(name+" "+Zivoty);
 		}catch (Exception e) {
 			System.out.println("Levl can´t be 0, setting lvl to 1");
 			Lvl = 1;
-			byloZasazeno(Silou);
+			byloZasazeno(Silou,playerID);
 		}
 	}
 }
