@@ -42,6 +42,20 @@ public class Game {
 		zvireZautocilo();
 		conIn();
 	}
+	public static void multiplayer(String type)
+	{
+		switch (type) {
+		case "Local":
+			
+			break;
+		case "TCP/IPc":
+			
+			break;
+		case "TCP/IPs":
+			
+			break;
+		}
+	}
 	private static void jidlo()
 	{
 		plr.Hlad -= 1;
