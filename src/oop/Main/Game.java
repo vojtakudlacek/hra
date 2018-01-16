@@ -14,6 +14,8 @@ import oop.Zvirata.Kocka;
 import oop.Zvirata.Pes;
 import oop.Zvirata.Player;
 import oop.Zvirata.Zvire;
+import oop.network.Client;
+import oop.network.Server;
 
 /**
  * Main game core
@@ -52,20 +54,23 @@ public class Game {
 			jidlo();
 			pes.Stekni();
 			zvireZautocilo();
-			if(plrList.size() == 2){
-			conIn(0);
-			conIn(1);
-			}
-			else
-			{
-				conIn(0);
-			}
+				if(plrList.size() == 2){
+					conIn(0);
+					conIn(1);
+				}
+				else
+				{
+					conIn(0);
+				}
 			
 			break;
 		case "TCP/IPc":
 			
+			Client client = new Client("localhost", 8123);
+			
 			break;
 		case "TCP/IPs":
+			Server server = new Server(8123);
 			
 			break;
 		}

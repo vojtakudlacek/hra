@@ -36,13 +36,13 @@ public class Main {
 				System.out.print("Zadej Jméno 2. hráèe: ");
 				Game.plrList.add(new Player(scn.nextLine()));
 				while(true){
-					Game.multiplayer("Local");
+					Game.multiplayer(scn.nextLine());
 				}
 				//System.out.println("Multiplayer není iplementován!");
 			default:
 				if(vyber > 2)
 					System.out.println("Chyba: Neplatný výbìr! \n"
-							+ "Skus to znova");
+							+ "Zkus to znova");
 				break;
 				}
 			scn.close();
