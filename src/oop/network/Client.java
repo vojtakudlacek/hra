@@ -22,15 +22,18 @@ public class Client {
 		
 		
 	}
-	public void sendDataToServer()
+	public void sendDataToServer(int what)
 	{
 		try {
 			
-			while(getDataFromServer() == 21);
+			while(getDataFromServer() == 21)
+			{
+				System.out.println("AAA");
+			}
 			
 			BufferedWriter out = new BufferedWriter(new OutputStreamWriter(this.clientSocket.getOutputStream()));
 			
-			String temp = "toto je \r\n";
+			String temp = String.valueOf(what);
 			out.write(temp);
 			out.flush();
 		} catch (IOException e) {

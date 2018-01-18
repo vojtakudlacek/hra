@@ -67,10 +67,14 @@ public class Game {
 		case "TCP/IPc":
 			
 			Client client = new Client("localhost", 8123);
+			System.out.println(client.getDataFromServer());
+			client.sendDataToServer(36985);
 			
 			break;
 		case "TCP/IPs":
 			Server server = new Server(8123);
+			server.brodcast(0123);
+			System.out.println(server.getDataFromClient());
 			
 			break;
 		}
@@ -475,5 +479,4 @@ public class Game {
 			
 		}
 	}
-
 }

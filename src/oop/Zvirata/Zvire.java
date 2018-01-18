@@ -4,7 +4,7 @@ import oop.Main.Game;
 
 public class Zvire {
 	/**
-	 * This is themplate for all entities
+	 * This is template for all entities
 	 */
 	public float Zivoty;
 	public int Hlad;
