@@ -32,12 +32,17 @@ public class Server {
 		
 		try {
 			brodcast(21); //2 = request, 1 = data from client
-			BufferedReader in = new BufferedReader(new InputStreamReader(clientScoket.getInputStream()));
 			int tmp = 0;
 			while (tmp == 0){
-			tmp = Integer.parseInt(in.readLine());
+				BufferedReader in = new BufferedReader(new InputStreamReader(clientScoket.getInputStream()));
+				tmp = Integer.parseInt(in.readLine());
 			}
-			return tmp;
+			
+			if(tmp != 0)
+			{
+				return tmp;
+			}
+			
 			
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -49,6 +54,7 @@ public class Server {
 	public void brodcast(int what)
 	{
 		try {
+			
 			BufferedWriter out = new BufferedWriter(new OutputStreamWriter((clientScoket.getOutputStream())));
 			out.write(what + "\r\n");
 			out.flush();

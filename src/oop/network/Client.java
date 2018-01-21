@@ -28,14 +28,16 @@ public class Client {
 			
 			while(getDataFromServer() == 21)
 			{
-				System.out.println("AAA");
+				break;
 			}
+			
 			
 			BufferedWriter out = new BufferedWriter(new OutputStreamWriter(this.clientSocket.getOutputStream()));
 			
-			String temp = String.valueOf(what);
+			String temp = String.valueOf(what) + "\n\r";
 			out.write(temp);
 			out.flush();
+			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
