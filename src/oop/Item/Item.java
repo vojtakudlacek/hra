@@ -14,4 +14,9 @@ public class Item {
 		sila = insila;
 		Name = inName;
 	}
+	public int getItemNumberCode() 
+	{
+		int code = Integer.parseInt(String.valueOf(id));
+		return code;
+	}
 }

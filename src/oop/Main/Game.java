@@ -34,7 +34,7 @@ public class Game {
 	
 	
 	public static Pes pes = new Pes(30, 100, 1,"Pes");
-	public static Kocka kocka = new Kocka(25,100,"Koèka");
+	public static Kocka kocka = new Kocka(25,100,"Koï¿½ka");
 	
 	public static ArrayList<Player> plrList = new ArrayList<Player>();
 	public static void game()
@@ -67,10 +67,12 @@ public class Game {
 		case "TCP/IPc":
 			
 			Client client = new Client("localhost", 8123);
+			System.out.print(client.getDataFromServer());
 			
 			break;
 		case "TCP/IPs":
 			Server server = new Server(8123);
+			server.brodcast(365848);
 			
 			break;
 		}
@@ -81,12 +83,12 @@ public class Game {
 			
 		
 		plr.Hlad -= 1;
-		System.out.println("Aktuaåní úroveò hladu hráèe "+plr.name+" je: "+plr.Hlad);
+		System.out.println("Aktuaï¿½nï¿½ ï¿½roveï¿½ hladu hrï¿½ï¿½e "+plr.name+" je: "+plr.Hlad);
 		if(plr.Hlad<=0)
 		{
-			System.out.println("Máš hlad najez se");
+			System.out.println("Mï¿½ hlad najez se");
 			plr.Zivoty -= -(plr.Hlad-1);
-			System.out.println("Umíráš na hlad !! Bylo ti ubráno: "+(plr.Hlad-1)+"\n Aktuální poèet životù je: "+plr.Zivoty);
+			System.out.println("Umï¿½rï¿½ na hlad !! Bylo ti ubrï¿½no: "+(plr.Hlad-1)+"\n Aktuï¿½lnï¿½ poï¿½et ï¿½ivotï¿½ je: "+plr.Zivoty);
 		}
 		}
 	}
@@ -103,10 +105,10 @@ public class Game {
 			{
 				if(Enemy == null){
 					Enemy = pes;
-					System.out.println("Pes zautocil na hráèe "+plr.name+" !");
+					System.out.println("Pes zautocil na hrï¿½ï¿½e "+plr.name+" !");
 					if(i2 != 7)
 					{
-						System.out.println("Pes se trefil, bylo ti ubráno "+((Enemy.Sila/2*Enemy.Lvl)/plr.Lvl)+" životù");
+						System.out.println("Pes se trefil, bylo ti ubrï¿½no "+((Enemy.Sila/2*Enemy.Lvl)/plr.Lvl)+" ï¿½ivotï¿½");
 						plr.Zivoty -= ((Enemy.Sila/2)*Enemy.Lvl)/(plr.Lvl*2);
 						pes.xp += 10;
 						Enemy.xp += 10;
@@ -114,7 +116,7 @@ public class Game {
 						pes.LvlUp();
 						Enemy.LvlUp();
 						plr.LvlUp();
-						System.out.println("Aktualni lvl: " + plr.Lvl + " Do dalsi levlu zbývá: "+ (((plr.Lvl*100)/2) - plr.xp));
+						System.out.println("Aktualni lvl: " + plr.Lvl + " Do dalsi levlu zbï¿½vï¿½: "+ (((plr.Lvl*100)/2) - plr.xp));
 					}
 					else
 					{
@@ -125,7 +127,7 @@ public class Game {
 						pes.LvlUp();
 						Enemy.LvlUp();
 						plr.LvlUp();
-						System.out.println("Aktualni lvl: " + plr.Lvl + " Do dalsi levlu zbývá: "+ (((plr.Lvl*100)/2) - plr.xp));
+						System.out.println("Aktualni lvl: " + plr.Lvl + " Do dalsi levlu zbï¿½vï¿½: "+ (((plr.Lvl*100)/2) - plr.xp));
 					}
 				}
 				else if(Enemy == pes)
@@ -133,7 +135,7 @@ public class Game {
 					System.out.println("Pes zautoci znovu na hrace "+plr.name);
 					if(i2 != 7)
 					{
-						System.out.println("Pes se trefil, bylo ti ubráno "+((pes.Sila/2*pes.Lvl)/plr.Lvl)+" životù");
+						System.out.println("Pes se trefil, bylo ti ubrï¿½no "+((pes.Sila/2*pes.Lvl)/plr.Lvl)+" ï¿½ivotï¿½");
 						plr.Zivoty -= ((Enemy.Sila/2)*Enemy.Lvl)/(plr.Lvl*2);
 						pes.xp += 10;
 						Enemy.xp += 10;
@@ -141,7 +143,7 @@ public class Game {
 						pes.LvlUp();
 						Enemy.LvlUp();
 						plr.LvlUp();
-						System.out.println("Aktualni lvl: " + plr.Lvl + " Do dalsi levlu zbývá: "+ (((plr.Lvl*100)/2) - plr.xp));
+						System.out.println("Aktualni lvl: " + plr.Lvl + " Do dalsi levlu zbï¿½vï¿½: "+ (((plr.Lvl*100)/2) - plr.xp));
 					}
 					else
 					{
@@ -152,7 +154,7 @@ public class Game {
 						pes.LvlUp();
 						Enemy.LvlUp();
 						plr.LvlUp();
-						System.out.println("Aktualni lvl: " + plr.Lvl + " Do dalsi levlu zbývá: "+ (((plr.Lvl*100)/2) - plr.xp));
+						System.out.println("Aktualni lvl: " + plr.Lvl + " Do dalsi levlu zbï¿½vï¿½: "+ (((plr.Lvl*100)/2) - plr.xp));
 					}
 				}
 				else if(Enemy == kocka) // ?????
@@ -160,7 +162,7 @@ public class Game {
 					System.out.println("Kocka zautocila znovu na hrace "+plr.name);
 					if(i2 != 7)
 					{
-						System.out.println("Kocka se trefila, bylo ti ubráno "+((Enemy.Sila/2*Enemy.Lvl)/plr.Lvl)+" životù");
+						System.out.println("Kocka se trefila, bylo ti ubrï¿½no "+((Enemy.Sila/2*Enemy.Lvl)/plr.Lvl)+" ï¿½ivotï¿½");
 						plr.Zivoty -= ((Enemy.Sila/2)*Enemy.Lvl)/(plr.Lvl*2);
 						kocka.xp += 10;
 						Enemy.xp += 10;
@@ -168,7 +170,7 @@ public class Game {
 						kocka.LvlUp();
 						Enemy.LvlUp();
 						plr.LvlUp();
-						System.out.println("Aktualni lvl: " + plr.Lvl + " Do dalsi levlu zbývá: "+ (((plr.Lvl*100)/2) - plr.xp));
+						System.out.println("Aktualni lvl: " + plr.Lvl + " Do dalsi levlu zbï¿½vï¿½: "+ (((plr.Lvl*100)/2) - plr.xp));
 					}
 					else
 					{
@@ -187,10 +189,10 @@ public class Game {
 			{
 				if(Enemy == null){
 					Enemy = kocka;
-					System.out.println("Kocka zautocila na hráèe "+plr.name+" !");
+					System.out.println("Kocka zautocila na hrï¿½ï¿½e "+plr.name+" !");
 					if(i2 != 7)
 					{
-						System.out.println("Kocka se trefila, bylo ti ubráno "+((Enemy.Sila/2*Enemy.Lvl)/plr.Lvl)+" životù");
+						System.out.println("Kocka se trefila, bylo ti ubrï¿½no "+((Enemy.Sila/2*Enemy.Lvl)/plr.Lvl)+" ï¿½ivotï¿½");
 						plr.Zivoty -= ((Enemy.Sila/2)*Enemy.Lvl)/(plr.Lvl*2);
 						kocka.xp += 10;
 						Enemy.xp += 10;
@@ -198,7 +200,7 @@ public class Game {
 						kocka.LvlUp();
 						Enemy.LvlUp();
 						plr.LvlUp();
-						System.out.println("Aktualni lvl: " + plr.Lvl + " Do dalsi levlu zbývá: "+ (((plr.Lvl*100)/2) - plr.xp));
+						System.out.println("Aktualni lvl: " + plr.Lvl + " Do dalsi levlu zbï¿½vï¿½: "+ (((plr.Lvl*100)/2) - plr.xp));
 					}
 					else
 					{
@@ -209,14 +211,14 @@ public class Game {
 						kocka.LvlUp();
 						Enemy.LvlUp();
 						plr.LvlUp();
-						System.out.println("Aktualni lvl: " + plr.Lvl + " Do dalsi levlu zbývá: "+ (((plr.Lvl*100)/2) - plr.xp));
+						System.out.println("Aktualni lvl: " + plr.Lvl + " Do dalsi levlu zbï¿½vï¿½: "+ (((plr.Lvl*100)/2) - plr.xp));
 					}
 				}else if(Enemy == pes)
 				{
-					System.out.println("Pes zautoci znovu na hráèe"+plr.name);
+					System.out.println("Pes zautoci znovu na hrï¿½ï¿½e"+plr.name);
 					if(i2 == 7)
 					{
-						System.out.println("Pes se trefil bylo ti ubráno "+((pes.Sila/2*pes.Lvl)/plr.Lvl)+" životù");
+						System.out.println("Pes se trefil bylo ti ubrï¿½no "+((pes.Sila/2*pes.Lvl)/plr.Lvl)+" ï¿½ivotï¿½");
 						plr.Zivoty -= ((Enemy.Sila/2)*Enemy.Lvl)/(plr.Lvl*2);
 						pes.xp += 10;
 						Enemy.xp += 10;
@@ -224,7 +226,7 @@ public class Game {
 						pes.LvlUp();
 						Enemy.LvlUp();
 						plr.LvlUp();
-						System.out.println("Aktualni lvl: " + plr.Lvl + " Do dalsi levlu zbývá: "+ (((plr.Lvl*100)/2) - plr.xp));
+						System.out.println("Aktualni lvl: " + plr.Lvl + " Do dalsi levlu zbï¿½vï¿½: "+ (((plr.Lvl*100)/2) - plr.xp));
 					}
 					else
 					{
@@ -235,15 +237,15 @@ public class Game {
 						pes.LvlUp();
 						Enemy.LvlUp();
 						plr.LvlUp();
-						System.out.println("Aktualni lvl: " + plr.Lvl + " Do dalsi levlu zbývá: "+ (((plr.Lvl*100)/2) - plr.xp));
+						System.out.println("Aktualni lvl: " + plr.Lvl + " Do dalsi levlu zbï¿½vï¿½: "+ (((plr.Lvl*100)/2) - plr.xp));
 					}
 				}
 				else if(Enemy == kocka)
 				{
-					System.out.println("Kocka zautocila znovu na hráèe"+plr.name);
+					System.out.println("Kocka zautocila znovu na hrï¿½ï¿½e"+plr.name);
 					if(i2 == 7)
 					{
-						System.out.println("Kocka se trefila bylo ti ubráno "+((Enemy.Sila/2*Enemy.Lvl)/plr.Lvl)+" životù");
+						System.out.println("Kocka se trefila bylo ti ubrï¿½no "+((Enemy.Sila/2*Enemy.Lvl)/plr.Lvl)+" ï¿½ivotï¿½");
 						plr.Zivoty -= ((Enemy.Sila/2)*Enemy.Lvl)/(plr.Lvl*2);
 						kocka.xp += 10;
 						Enemy.xp += 10;
@@ -251,7 +253,7 @@ public class Game {
 						kocka.LvlUp();
 						Enemy.LvlUp();
 						plr.LvlUp();
-						System.out.println("Aktualni lvl: " + plr.Lvl + " Do dalsi levlu zbývá: "+ (((plr.Lvl*100)/2) - plr.xp));
+						System.out.println("Aktualni lvl: " + plr.Lvl + " Do dalsi levlu zbï¿½vï¿½: "+ (((plr.Lvl*100)/2) - plr.xp));
 					}
 					else
 					{
@@ -262,7 +264,7 @@ public class Game {
 						kocka.LvlUp();
 						Enemy.LvlUp();
 						plr.LvlUp();
-						System.out.println("Aktualni lvl: " + plr.Lvl + " Do dalsi levlu zbývá: "+ (((plr.Lvl*100)/2) - plr.xp));
+						System.out.println("Aktualni lvl: " + plr.Lvl + " Do dalsi levlu zbï¿½vï¿½: "+ (((plr.Lvl*100)/2) - plr.xp));
 				}
 			}}
 		}
@@ -272,15 +274,15 @@ public class Game {
 	{
 		Player plr = plrList.get(playerID);
 		Scanner scn = new Scanner(System.in);
-		System.out.print(plr.name + ": Napiš help pro zobrazení vìcí co mùžeš udìlat: ");
+		System.out.print(plr.name + ": Napiï¿½ help pro zobrazenï¿½ vï¿½cï¿½ co mï¿½ï¿½eï¿½ udï¿½lat: ");
 		String vstup = scn.nextLine();
 		scn.reset();
 		if(vstup.equals("help"))
 		{
-			System.out.println("Pro útok napis: Zautoc");
-			System.out.println("Pro Najedìní se napis: Jez");
-			System.out.println("Pro vypití lektvaru napis: Lektvar");
-			System.out.println("Pro další kolo napiš: Dalsi");
+			System.out.println("Pro ï¿½tok napis: Zautoc");
+			System.out.println("Pro Najedï¿½nï¿½ se napis: Jez");
+			System.out.println("Pro vypitï¿½ lektvaru napis: Lektvar");
+			System.out.println("Pro dalï¿½ï¿½ kolo napiï¿½: Dalsi");
 			conIn(playerID);
 		}
 		else if(vstup.equals("Zautoc"))
@@ -294,7 +296,7 @@ public class Game {
 		else if(vstup.equals("Dalsi"))
 		{
 			naselItem(playerID);
-			System.out.println("Pøeskakuji kolo! ");
+			System.out.println("Pï¿½eskakuji kolo! ");
 		}
 		else if(vstup.equals("Lektvar"))
 		{
@@ -302,7 +304,7 @@ public class Game {
 		}
 		else
 		{
-			System.out.println("Zadal jsi neplatný pøíkaz");
+			System.out.println("Zadal jsi neplatnï¿½ pï¿½ï¿½kaz");
 			conIn(playerID);
 		}
 	}
@@ -316,7 +318,7 @@ public class Game {
 		}
 		else
 		{
-			System.out.println("Námáš z èeho se najezt");
+			System.out.println("Nï¿½mï¿½ z ï¿½eho se najezt");
 		}
 		plrList.set(playerID, plr);
 	}
@@ -325,11 +327,11 @@ public class Game {
 		Player plr = plrList.get(playerID);
 		if(Enemy != null)
 		{
-			System.out.println("Máš tyto zbranì: ");
+			System.out.println("Mï¿½ tyto zbranï¿½: ");
 			int i = 0;
 			if(plr.inv[0] == null && plr.inv[1] == null && plr.inv[2] == null && plr.inv[3] == null && plr.inv[4] == null)
 			{
-				System.out.println("V inventáøi nemáš nic :(");
+				System.out.println("V inventï¿½ï¿½i nemï¿½ nic :(");
 				naselItem(playerID);
 			}
 			else
@@ -338,11 +340,11 @@ public class Game {
 				{
 					if(plr.inv[i] != null)
 					{
-						System.out.println("Na pozici "+i+" máš: "+plr.inv[i].Name);
+						System.out.println("Na pozici "+i+" mï¿½: "+plr.inv[i].Name);
 					}
 					i++;
 				}
-				System.out.print("Zvol item v inventáøi kterím chceš útoèit (pozici v inventáøi)");
+				System.out.print("Zvol item v inventï¿½ï¿½i kterï¿½m chceï¿½ ï¿½toï¿½it (pozici v inventï¿½ï¿½i)");
 				try
 				{
 					Scanner scn = new Scanner(System.in);
@@ -360,11 +362,11 @@ public class Game {
 					Enemy.byloZasazeno(plr.inv[selectedPosition].sila * ((plr.Lvl+1)/2),playerID);
 						if(Enemy.Zivoty <= 0)
 						{
-							System.out.println("Nepøítel byl zabit");
+							System.out.println("Nepï¿½ï¿½tel byl zabit");
 							plr.xp += 10*Enemy.Lvl;
 							Enemy = null;
 							plr.LvlUp();
-							System.out.println("Aktualni lvl hráèe "+ plr.name +" je: " + plr.Lvl + " Do dalsi levlu zbývá: "+ (((plr.Lvl*100)/2) - plr.xp));
+							System.out.println("Aktualni lvl hrï¿½ï¿½e "+ plr.name +" je: " + plr.Lvl + " Do dalsi levlu zbï¿½vï¿½: "+ (((plr.Lvl*100)/2) - plr.xp));
 							naselItem(playerID);
 							kocka.Zivoty = 25;
 							pes.Zivoty = 30;
@@ -377,14 +379,14 @@ public class Game {
 				}
 				else
 				{
-					System.out.println("Na této pozici není žádný item :(");
+					System.out.println("Na tï¿½to pozici nenï¿½ ï¿½ï¿½dnï¿½ item :(");
 					conIn(playerID);
 				}
 			}
 		}
 		else
 		{
-			System.out.println("Nemùžeš útoèit do nièeho");
+			System.out.println("Nemï¿½ï¿½eï¿½ ï¿½toï¿½it do niï¿½eho");
 			naselItem(playerID);
 		}
 		plrList.set(playerID, plr);
@@ -402,42 +404,42 @@ public class Game {
 			{
 				if(plr.inv[appel.id] != appel)
 				{
-					System.out.println("Hráè "+plr.name+" našel jabko");
+					System.out.println("Hrï¿½ï¿½ "+plr.name+" naï¿½el jabko");
 					plr.inv[appel.id] = appel;
 				}
 			}else if(rndss == 1)
 			{
 				if(plr.inv[woodenSword.id] != woodenSword)
 				{
-					System.out.println("Hráè "+plr.name+" našel Døevìný meè");
+					System.out.println("Hrï¿½ï¿½ "+plr.name+" naï¿½el Dï¿½evï¿½nï¿½ meï¿½");
 					plr.inv[woodenSword.id] = woodenSword;
 				}
 			}else if(rndss == 2)
 			{
 				if(plr.inv[stoneSword.id] != stoneSword)
 				{
-					System.out.println("Hráè "+plr.name+" našel Kamený meè");
+					System.out.println("Hrï¿½ï¿½ "+plr.name+" naï¿½el Kamenï¿½ meï¿½");
 					plr.inv[stoneSword.id] = stoneSword;
 				}
 			}else if(rndss == 3)
 			{
 				if(plr.inv[ironSword.id] != ironSword)
 				{
-					System.out.println("Hráè "+plr.name+" našel Železný meè");
+					System.out.println("Hrï¿½ï¿½ "+plr.name+" naï¿½el ï¿½eleznï¿½ meï¿½");
 					plr.inv[ironSword.id] = ironSword;
 				}
 			}else if(rndss == 4)
 			{
 				if(plr.inv[diamondSword.id] != diamondSword)
 				{
-					System.out.println("Hráè "+plr.name+" našel Diamantový meè");
+					System.out.println("Hrï¿½ï¿½ "+plr.name+" naï¿½el Diamantovï¿½ meï¿½");
 					plr.inv[diamondSword.id] = diamondSword;
 				}
 			}else if(rndss == 5)
 			{
 				if(plr.inv[potion.id] != potion)
 				{
-					System.out.println("Hráè "+plr.name+" našel lektvar");
+					System.out.println("Hrï¿½ï¿½ "+plr.name+" naï¿½el lektvar");
 					plr.inv[potion.id] = potion;
 				}
 			}
@@ -449,7 +451,7 @@ public class Game {
 		Player plr = plrList.get(playerID);
 		plr.Zivoty += 10;
 		plr.inv[potion.id] = null;
-		System.out.println("Aktuaåní úroveò životù hráèe "+plr.name+" je: "+plr.Zivoty);
+		System.out.println("Aktuaï¿½nï¿½ ï¿½roveï¿½ ï¿½ivotï¿½ hrï¿½ï¿½e "+plr.name+" je: "+plr.Zivoty);
 		plrList.set(playerID, plr);
 	}
 	
@@ -458,7 +460,7 @@ public class Game {
 		
 		if(plrList.get(0).Zivoty <=0 && plrList.size() == 1)
 		{
-			System.out.println("Umøel jsi\n Po zmáèknutí jakékoliv klávesy se hra ukonèí");
+			System.out.println("Umï¿½el jsi\n Po zmï¿½ï¿½knutï¿½ jakï¿½koliv klï¿½vesy se hra ukonï¿½ï¿½");
 			Scanner scn = new Scanner(System.in);
 			scn.next();
 			scn.close();
@@ -468,7 +470,7 @@ public class Game {
 			for (Player plr : plrList) {
 				if(plr.Zivoty <= 0)
 				{
-					System.out.println("Hráè " + plr.name + "umøel");
+					System.out.println("Hrï¿½ï¿½ " + plr.name + "umï¿½el");
 					plrList.remove(plr);
 				}
 			}

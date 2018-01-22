@@ -18,12 +18,12 @@ public class Server {
 		try {
 			this.serverScoket = new ServerSocket(port);
 			
-			System.out.println("Èekám na pøipojení klienta . . .");
+			System.out.println("ï¿½ekï¿½m na pï¿½ipojenï¿½ klienta . . .");
 			clientScoket = this.serverScoket.accept();
-			System.out.println("Klient se pøipojil(" + clientScoket.getInetAddress().getHostAddress() + ")");
+			System.out.println("Klient se pï¿½ipojil(" + clientScoket.getInetAddress().getHostAddress() + ")");
 			
 		} catch (IOException e) {
-			new Error("Port je již používá jinný program ! ");
+			new Error("Port je jiï¿½ pouï¿½ï¿½vï¿½ jinnï¿½ program ! ");
 		}
 	}
 	
@@ -31,7 +31,7 @@ public class Server {
 	{
 		
 		try {
-			brodcast(21); //2 = request, 1 = data from client
+			this.brodcast(21); //2 = request, 1 = data from client
 			BufferedReader in = new BufferedReader(new InputStreamReader(clientScoket.getInputStream()));
 			int tmp = 0;
 			while (tmp == 0){

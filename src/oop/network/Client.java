@@ -17,10 +17,8 @@ public class Client {
 			this.clientSocket = new Socket(ip, port);
 			
 		} catch (IOException e) {
-			new Error("Na danné ip addrese a portu nebìží žádný server ! ");
+			new Error("Na dannï¿½ ip addrese a portu nebï¿½ï¿½ ï¿½ï¿½dnï¿½ server ! ");
 		}
-		
-		
 	}
 	public void sendDataToServer()
 	{
@@ -49,7 +47,6 @@ public class Client {
 			e.printStackTrace();
 		}
 		return -1;
-		
 		
 	}
 
