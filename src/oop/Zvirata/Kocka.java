@@ -8,7 +8,7 @@ public class Kocka extends Zvire{
 	 * @param h - Hlad
 	 * @param name
 	 */
-	public Kocka(int z, int h,String name) {
-		super(z, h,1,name,5);
+	public Kocka(int z, int h,int Lvl,String name) {
+		super(z, h,Lvl,name,5,2);
 	}
 }

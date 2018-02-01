@@ -4,11 +4,11 @@ import java.util.Random;
 
 public class Pes extends Zvire{
 	/**
-	 * This is enemy who can stìkat and have 10 of strenght
+	 * This is enemy who can stï¿½kat and have 10 of strenght
 	 */
 	public boolean umiStekat = true;
 	public Pes(int z, int h, int l,String name) {
-		super(z, h, l,name,10);
+		super(z, h, l,name,10,1);
 	}
 	public void Stekni()
 	{

@@ -9,6 +9,6 @@ public class Player extends Zvire {
 	 */
 	public Item[] inv =new Item[6];
 	public Player(String name) {
-		super(100, 50, 1, name);
+		super(100, 50, 1, name,0);
 	}
 }
