@@ -15,12 +15,12 @@ import oop.Zvirata.Pes;
 import oop.Zvirata.Player;
 import oop.Zvirata.Zvire;
 import oop.network.Client;
+import oop.network.SendReciveObject;
 import oop.network.Server;
 
 /**
  * Main game core
  * @author vojta
- *
  */
 public class Game {
 	public static Zvire Enemy;
@@ -37,6 +37,7 @@ public class Game {
 	public static Kocka kocka = new Kocka(25,100, 1, "Ko�ka");
 	
 	public static ArrayList<Player> plrList = new ArrayList<Player>();
+	
 	public static void game()
 	{
 		
@@ -67,9 +68,48 @@ public class Game {
 		case "TCP/IPc":
 			Client client = new Client("localhost", 8123);
 			
+			
+			appel = (Appel) SendReciveObject.reciveObject(client.getDataFromServer());
+			potion = (Potion) SendReciveObject.reciveObject(client.getDataFromServer());
+			woodenSword = (WoodenSword) SendReciveObject.reciveObject(client.getDataFromServer());
+			stoneSword = (StoneSword) SendReciveObject.reciveObject(client.getDataFromServer());
+			ironSword = (IronSword) SendReciveObject.reciveObject(client.getDataFromServer());
+			diamondSword = (DiamondSword) SendReciveObject.reciveObject(client.getDataFromServer());
+			pes = (Pes) SendReciveObject.reciveObject(client.getDataFromServer());
+			kocka = (Kocka) SendReciveObject.reciveObject(client.getDataFromServer());
+			client.sendDataToServer(SendReciveObject.sendZvire(plrList.get(1)));
+			plrList.set(0, (Player) SendReciveObject.reciveObject(client.getDataFromServer()));
+			
+			Enemy = (Zvire) SendReciveObject.reciveObject(client.getDataFromServer());
+			
+			bylHracZabit();
+			jidlo();
+			pes.Stekni();
+			zvireZautocilo();
+			conIn(1);
+			
 			break;
 		case "TCP/IPs":
 			Server server = new Server(8123);
+			bylHracZabit();
+			jidlo();
+			pes.Stekni();
+			zvireZautocilo();
+			conIn(0);
+			
+			
+			server.brodcast(SendReciveObject.sendItem(appel));
+			server.brodcast(SendReciveObject.sendItem(potion));
+			server.brodcast(SendReciveObject.sendItem(woodenSword));
+			server.brodcast(SendReciveObject.sendItem(stoneSword));
+			server.brodcast(SendReciveObject.sendItem(ironSword));
+			server.brodcast(SendReciveObject.sendItem(diamondSword));
+			server.brodcast(SendReciveObject.sendZvire(pes));
+			server.brodcast(SendReciveObject.sendZvire(kocka));
+			server.brodcast(SendReciveObject.sendZvire(plrList.get(0)));
+			plrList.set(1, (Player) SendReciveObject.reciveObject(server.getDataFromClient()));
+			if(Enemy != null)
+				server.brodcast(SendReciveObject.sendZvire(Enemy));
 			
 			break;
 		}
@@ -77,8 +117,6 @@ public class Game {
 	private static void jidlo()
 	{
 		for (Player plr : plrList) {
-			
-		
 		plr.Hlad -= 1;
 		System.out.println("Aktua�n� �rove� hladu hr��e "+plr.name+" je: "+plr.Hlad);
 		if(plr.Hlad<=0)

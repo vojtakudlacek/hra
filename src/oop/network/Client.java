@@ -17,7 +17,7 @@ public class Client {
 			this.clientSocket = new Socket(ip, port);
 			
 		} catch (IOException e) {
-			new Error("Na danné ip addrese a portu nebìží žádný server ! ");
+			new Error("Na dannï¿½ ip addrese a portu nebï¿½ï¿½ ï¿½ï¿½dnï¿½ server ! ");
 		}
 		
 		
@@ -45,10 +45,13 @@ public class Client {
 	}
 	public int getDataFromServer()
 	{
-		BufferedReader in;
+		BufferedReader in = null;
 		try {
+			while(in == null) {
 			in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+			}
 			return Integer.parseInt(in.readLine());
+			
 			
 		} catch (IOException e) {
 			e.printStackTrace();
